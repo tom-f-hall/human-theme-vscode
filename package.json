@@ -2,7 +2,7 @@
   "name": "human-theme",
   "displayName": "Human Theme",
   "description": "Research-grade color themes based on vision science and human perception. Six scientifically validated variants (Dark, Light, Low Light, Soft, Warm, High Contrast) with WCAG AAA accessibility, colorblind safety, and optimized eye comfort. Features natural color hierarchy inspired by ecological perception and reduced blue light options for circadian rhythm preservation.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "TomHall",
   "icon": "icon.png",
   "galleryBanner": {
