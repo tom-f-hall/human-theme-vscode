@@ -20,6 +20,9 @@ build.ts
 .eslintrc*
 .prettierrc*
 
+# Exclude preview images (too large for marketplace)
+previews/
+
 # Include only necessary files for marketplace
 # Theme JSON files are included by default
 # package.json, README.md, LICENSE, CHANGELOG.md are included by default
