@@ -1,0 +1,25 @@
+# Exclude TypeScript source files from published extension
+src/
+*.ts
+tsconfig.json
+
+# Exclude build artifacts
+node_modules/
+.vscode/
+.vscode-test/
+
+# Exclude development files
+.git/
+.gitignore
+*.log
+npm-debug.log*
+build.ts
+
+# Exclude documentation that's not needed in published extension
+.editorconfig
+.eslintrc*
+.prettierrc*
+
+# Include only necessary files for marketplace
+# Theme JSON files are included by default
+# package.json, README.md, LICENSE, CHANGELOG.md are included by default

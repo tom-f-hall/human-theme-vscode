@@ -1,0 +1,102 @@
+{
+  "name": "human-theme",
+  "displayName": "Human Theme",
+  "description": "Research-grade color themes based on vision science and human perception. Six scientifically validated variants (Dark, Light, Low Light, Soft, Warm, High Contrast) with WCAG AAA accessibility, colorblind safety, and optimized eye comfort. Features natural color hierarchy inspired by ecological perception and reduced blue light options for circadian rhythm preservation.",
+  "version": "1.0.0",
+  "publisher": "cupboardmonkey",
+  "icon": "icon.svg",
+  "galleryBanner": {
+    "color": "#101713",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tom-f-hall/human-theme-vscode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tom-f-hall/human-theme-vscode/issues"
+  },
+  "homepage": "https://github.com/tom-f-hall/human-theme-vscode/tree/main/theme-human",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "dark",
+    "light",
+    "accessibility",
+    "wcag",
+    "colorblind-safe",
+    "eye-comfort",
+    "vision-science",
+    "human-centered",
+    "research-grade",
+    "scientific",
+    "minimalist",
+    "natural",
+    "green"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Human Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/human-dark-color-theme.json"
+      },
+      {
+        "label": "Human Light",
+        "uiTheme": "vs",
+        "path": "./themes/human-light-color-theme.json"
+      },
+      {
+        "label": "Human Low Light",
+        "uiTheme": "vs-dark",
+        "path": "./themes/human-low-light-color-theme.json"
+      },
+      {
+        "label": "Human Soft",
+        "uiTheme": "vs",
+        "path": "./themes/human-soft-color-theme.json"
+      },
+      {
+        "label": "Human Warm",
+        "uiTheme": "vs",
+        "path": "./themes/human-warm-color-theme.json"
+      },
+      {
+        "label": "Human High Contrast",
+        "uiTheme": "vs",
+        "path": "./themes/human-high-contrast-color-theme.json"
+      }
+    ],
+    "configuration": {
+      "title": "Human Theme",
+      "properties": {
+        "workbench.preferredDarkColorTheme": {
+          "type": "string",
+          "default": "Human Dark",
+          "description": "Theme used when system is in dark mode"
+        },
+        "workbench.preferredLightColorTheme": {
+          "type": "string",
+          "default": "Human Light",
+          "description": "Theme used when system is in light mode"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "ts-node src/build.ts",
+    "validate": "ts-node src/build.ts --validate",
+    "prepare": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.7.0"
+  }
+}
