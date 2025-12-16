@@ -108,73 +108,153 @@ function generateLightModeColor(
  * Works for both dark and light modes
  */
 function buildTheme(palette: ThemePalette): VSCodeTheme {
-  // Build UI colors from palette
-  const themeUiColors: Record<string, string> = {
-    // Editor colors
-    "editor.background": palette.base.background,
-    "editor.foreground": palette.base.foreground,
-    "editor.lineNumberActiveForeground": palette.gray.lineNumberActive,
-    "editor.lineNumberForeground": palette.gray.lineNumberMuted,
-    "editor.selectionBackground": palette.ui.selectionBackground,
-    "editor.selectionForeground": palette.base.foreground,
-    "editor.inactiveSelectionBackground": palette.ui.selectionInactive,
-    "editor.wordHighlightBackground": palette.ui.wordHighlight,
-    "editor.wordHighlightStrongBackground": palette.ui.wordHighlightStrong,
-    "editor.findMatchBackground": palette.ui.findMatch,
-    "editor.findMatchHighlightBackground": palette.ui.findMatchHighlight,
-    "editor.hoverHighlightBackground": palette.ui.hoverBackground,
-    
-    // Sidebar and panels
-    "sideBar.background": palette.base.backgroundLighter,
-    "sideBar.foreground": palette.base.foreground,
-    "sideBar.border": palette.ui.border,
-    "panel.background": palette.base.background,
-    "panel.foreground": palette.base.foreground,
-    "panel.border": palette.ui.border,
-    
-    // Status bar
-    "statusBar.background": palette.base.backgroundLighter,
-    "statusBar.foreground": palette.base.foreground,
-    
-    // Terminal
-    "terminal.background": palette.base.background,
-    "terminal.foreground": palette.base.foreground,
-    "terminal.ansiBlack": palette.gray.tan,
-    "terminal.ansiRed": palette.red.errorClay,
-    "terminal.ansiGreen": palette.green.statusGood,
-    "terminal.ansiYellow": palette.ochre.warningAmber,
-    "terminal.ansiBlue": palette.teal.typeSageBold,
-    "terminal.ansiMagenta": palette.red.rust,
-    "terminal.ansiCyan": palette.teal.operatorSage,
-    "terminal.ansiWhite": palette.gray.veryMuted,
-    
-    // Bracket pairs - "Framing" aesthetic: autumn leaves, sunlight, sand
-    "editorBracketHighlight.foreground1": palette.ochre.warningAmber,      // Golden sunlight
-    "editorBracketHighlight.foreground2": palette.ochre.autumnRust,        // Autumn leaves
-    "editorBracketHighlight.foreground3": palette.ochre.warmBold,          // Ochre sand
-    "editorBracketHighlight.foreground4": palette.red.rust,                // Rust/copper
-    "editorBracketHighlight.foreground5": palette.brown.htmlEarthy,        // Deep earth
-    "editorBracketHighlight.foreground6": palette.green.keywordBold,       // Fresh foliage
-    "editorBracketHighlight.unexpectedBracket.foreground": palette.red.errorClay,
-  };
+  // Build comprehensive UI colors using palette as if it were the colors object
+  const buildUiColors = (p: ThemePalette) => ({
+    // Core editor
+    "editor.background": p.base.background,
+    "editor.foreground": p.base.foreground,
+    "editorLineNumber.foreground": p.gray.lineNumberMuted,
+    "editorLineNumber.activeForeground": p.gray.lineNumberActive,
+    "editorCursor.foreground": p.green.keywordBold,
 
-  // Diagnostics
-  const diagnosticColors: Record<string, string> = {
-    "editorError.foreground": palette.red.errorClay,
-    "editorWarning.foreground": palette.ochre.warningAmber,
-    "editorInfo.foreground": palette.teal.typeSageBold,
-    "editorHint.foreground": palette.green.statusGood,
-    "editorError.background": palette.red.errorBackground + "30",
-    "editorWarning.background": palette.base.backgroundDarker + "30",
-    "editorInfo.background": palette.base.backgroundDarker + "30",
-    "editorGutter.modifiedBackground": palette.ochre.warningAmber,
-    "editorGutter.addedBackground": palette.green.functionMoss,
-    "editorGutter.deletedBackground": palette.red.errorClay,
-    "editorGutter.foldingControlForeground": palette.gray.commentMuted,
-    "problemsErrorIcon.foreground": palette.red.errorClay,
-    "problemsWarningIcon.foreground": palette.ochre.warningAmber,
-    "problemsInfoIcon.foreground": palette.teal.typeSageBold,
-  };
+    // Selection & focus
+    "editor.selectionBackground": p.ui.selectionBackground,
+    "editor.inactiveSelectionBackground": p.ui.selectionInactive + "80",
+    "editor.selectionHighlightBackground": p.ui.selectionHighlight + "60",
+    "editor.wordHighlightBackground": p.ui.wordHighlight + "80",
+    "editor.wordHighlightStrongBackground": p.ui.wordHighlightStrong + "80",
+    "editor.findMatchBackground": p.ui.findMatch,
+    "editor.findMatchHighlightBackground": p.ui.findMatchHighlight + "60",
+    "editor.hoverHighlightBackground": p.ui.hoverBackground,
+
+    // Panels & UI (Mercury OS: Minimal borders, unified backgrounds)
+    "sideBar.background": p.base.background,
+    "sideBar.foreground": p.base.foregroundMuted,
+    "sideBar.border": "#00000000",
+    "activityBar.background": p.base.background,
+    "activityBar.foreground": p.green.keywordBold,
+    "activityBar.inactiveForeground": p.gray.commentMuted,
+    "activityBar.border": "#00000000",
+    "statusBar.background": p.base.background,
+    "statusBar.foreground": p.base.foregroundMuted,
+    "statusBar.border": "#00000000",
+    "panel.background": p.base.background,
+    "panel.border": "#00000000",
+    "tab.activeBackground": p.base.background,
+    "tab.inactiveBackground": p.base.backgroundDarker,
+    "tab.border": "#00000000",
+    "titleBar.activeBackground": p.base.background,
+    "titleBar.activeForeground": p.base.foreground,
+    "titleBar.border": "#00000000",
+
+    // Lists / trees
+    "list.activeSelectionBackground": p.ui.selectionBackground,
+    "list.activeSelectionForeground": p.base.foreground,
+    "list.hoverBackground": p.ui.hoverBackground,
+    "list.inactiveSelectionBackground": p.ui.selectionInactive,
+    "list.focusOutline": "#00000000",
+    "list.focusAndSelectionOutline": "#00000000",
+    "tree.indentGuidesStroke": p.base.backgroundLighter,
+
+    // Focus & borders (Mercury OS: Minimal)
+    "focusBorder": p.green.keywordBold + "40",
+    "contrastBorder": "#00000000",
+
+    // Links
+    "textLink.foreground": p.teal.typeSageBold,
+    "textLink.activeForeground": p.green.keywordBold,
+
+    // Input & dropdowns
+    "input.background": p.base.background,
+    "input.border": p.base.backgroundLighter,
+    "input.foreground": p.base.foreground,
+    "input.placeholderForeground": p.gray.commentMuted,
+    "dropdown.background": p.base.background,
+    "dropdown.border": p.base.backgroundLighter,
+    "dropdown.foreground": p.base.foreground,
+
+    // Scrollbar (Mercury OS: Invisible until needed)
+    "scrollbar.shadow": "#00000000",
+    "scrollbarSlider.background": p.gray.commentMuted + "20",
+    "scrollbarSlider.hoverBackground": p.gray.commentMuted + "40",
+    "scrollbarSlider.activeBackground": p.green.keywordBold + "60",
+
+    // Breadcrumbs
+    "breadcrumb.foreground": p.teal.operatorSage,
+    "breadcrumb.background": p.base.background,
+    "breadcrumb.focusForeground": p.green.keywordBold,
+    "breadcrumb.activeSelectionForeground": p.green.keywordBold,
+
+    // Terminal
+    "terminal.background": p.base.background,
+    "terminal.foreground": p.base.foreground,
+    "terminal.ansiBlack": p.gray.tan,
+    "terminal.ansiRed": p.red.errorClay,
+    "terminal.ansiGreen": p.green.statusGood,
+    "terminal.ansiYellow": p.ochre.warningAmber,
+    "terminal.ansiBlue": p.teal.typeSageBold,
+    "terminal.ansiMagenta": p.red.rust,
+    "terminal.ansiCyan": p.teal.operatorSage,
+    "terminal.ansiWhite": p.gray.veryMuted,
+    "terminal.ansiBrightBlack": p.gray.commentMuted,
+    "terminal.ansiBrightRed": p.red.errorLight,
+    "terminal.ansiBrightGreen": p.green.leafLight,
+    "terminal.ansiBrightYellow": p.ochre.warningAmber,
+    "terminal.ansiBrightBlue": p.teal.typeSageBold,
+    "terminal.ansiBrightMagenta": p.red.rust,
+    "terminal.ansiBrightCyan": p.teal.namespace,
+    "terminal.ansiBrightWhite": p.base.foreground,
+
+    // Bracket pairs
+    "editorBracketHighlight.foreground1": p.ochre.warningAmber,
+    "editorBracketHighlight.foreground2": p.ochre.autumnRust,
+    "editorBracketHighlight.foreground3": p.ochre.warmBold,
+    "editorBracketHighlight.foreground4": p.red.rust,
+    "editorBracketHighlight.foreground5": p.brown.htmlEarthy,
+    "editorBracketHighlight.foreground6": p.green.keywordBold,
+    "editorBracketHighlight.unexpectedBracket.foreground": p.red.errorClay,
+
+    // Diagnostics & errors
+    "editorError.foreground": p.red.errorClay,
+    "editorWarning.foreground": p.ochre.warningAmber,
+    "editorInfo.foreground": p.teal.typeSageBold,
+    "editorHint.foreground": p.green.statusGood,
+    "editorError.background": p.red.errorBackground + "30",
+    "editorWarning.background": p.base.backgroundDarker + "30",
+    "editorInfo.background": p.base.backgroundDarker + "30",
+    "editorGutter.modifiedBackground": p.ochre.warningAmber,
+    "editorGutter.addedBackground": p.green.functionMoss,
+    "editorGutter.deletedBackground": p.red.errorClay,
+    "editorGutter.foldingControlForeground": p.gray.commentMuted,
+    "problemsErrorIcon.foreground": p.red.errorClay,
+    "problemsWarningIcon.foreground": p.ochre.warningAmber,
+    "problemsInfoIcon.foreground": p.teal.typeSageBold,
+
+    // Git decorations
+    "gitDecoration.modifiedResourceForeground": p.ochre.warningAmber,
+    "gitDecoration.addedResourceForeground": p.green.functionMoss,
+    "gitDecoration.deletedResourceForeground": p.red.errorClay,
+    "gitDecoration.untrackedResourceForeground": p.green.leafLight,
+    "gitDecoration.conflictingResourceForeground": p.red.rust,
+    "gitDecoration.ignoredResourceForeground": p.gray.commentMuted,
+
+    // Diff editor
+    "diffEditor.insertedTextBackground": p.green.successLight + "15",
+    "diffEditor.removedTextBackground": p.red.errorLight + "15",
+
+    // Extensions
+    "extensionButton.prominentBackground": p.green.keywordBold,
+    "extensionButton.prominentForeground": p.base.backgroundDarker,
+    "extensionButton.prominentHoverBackground": p.green.functionMoss,
+
+    // Symbol icons
+    "symbolIcon.classForeground": p.teal.typeSageBold,
+    "symbolIcon.functionForeground": p.green.functionMoss,
+    "symbolIcon.variableForeground": p.base.foreground,
+    "symbolIcon.keywordForeground": p.green.keywordBold,
+  });
+
+  const themeUiColors = buildUiColors(palette);
 
   // Build semantic token colors from palette
   const tokenColors: Record<string, any> = {
@@ -245,10 +325,7 @@ function buildTheme(palette: ThemePalette): VSCodeTheme {
   return {
     name: palette.name,
     type: palette.type,
-    colors: {
-      ...themeUiColors,
-      ...diagnosticColors,
-    },
+    colors: themeUiColors,
     tokenColors: textMateRules as Record<string, unknown>[],
     semanticTokenColors: tokenColors,
   };
