@@ -2,7 +2,7 @@
 
 Research-grade VS Code theme based on vision science and human perception. Designed with ecological color theory and scientifically validated for accessibility, eye comfort, and colorblind safety.
 
-## Screenshots
+## Human Dark
 
 ![Human Dark](previews/human_dark_preview.png)
 
@@ -29,6 +29,9 @@ Research-grade VS Code theme based on vision science and human perception. Desig
 - **Semantic Highlighting** - Full semantic token support for enhanced code understanding
 
 ### Color Modes
+
+**Automatic Theme Switching:** VS Code can automatically switch between themes based on your system's color mode preference. See [Automatic System Mode Switching](#automatic-system-mode-switching) in the Installation section for setup instructions.
+
 ![Human Light](previews/human_light_preview.png)
 ![Human Low Light](previews/human_low_light_preview.png)
 ![Human Soft](previews/human_soft_preview.png)
