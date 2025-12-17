@@ -195,6 +195,7 @@ export type Colors = {
     readonly warmBold: string;
     readonly constantMuted: string;
     readonly warningAmber: string;
+    readonly autumnRust: string;
   };
   readonly red: {
     readonly errorClay: string;

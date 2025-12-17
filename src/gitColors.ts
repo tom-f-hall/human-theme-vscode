@@ -1,17 +1,30 @@
 /**
  * Git/SCM Decorations - File colors in explorer, git history, etc.
+ * Generated from palette - not hardcoded
  */
 
-import { colors } from "./colors";
+import { Colors } from "./colors";
 
-export const gitColors = {
-  // Merge conflict (backgrounds must be transparent)
-  "merge.currentHeaderBackground": "#16332140",
-  "merge.currentContentBackground": "#16332130",
-  "merge.incomingHeaderBackground": colors.red.errorBackground + "40",
-  "merge.incomingContentBackground": colors.red.errorBackground + "30",
-  "merge.commonHeaderBackground": colors.ui.border + "40",
-  "merge.commonContentBackground": colors.ui.hoverBackground + "30",
-};
+export function buildGitColors(palette: Colors) {
+  return {
+    // Git file status decorations
+    "gitDecoration.addedResourceForeground": palette.green.functionMoss,
+    "gitDecoration.modifiedResourceForeground": palette.ochre.warmBold,
+    "gitDecoration.deletedResourceForeground": palette.red.errorClay,
+    "gitDecoration.untrackedResourceForeground": palette.green.leafLight,
+    "gitDecoration.ignoredResourceForeground": palette.gray.commentMuted,
+    "gitDecoration.conflictingResourceForeground": palette.red.rust,
+    "gitDecoration.submoduleResourceForeground": palette.teal.namespace,
 
-export type GitColors = typeof gitColors;
+    // Merge conflict backgrounds
+    "merge.currentHeaderBackground": palette.teal.typeSageBold + "40",
+    "merge.currentContentBackground": palette.teal.typeSageBold + "20",
+    "merge.incomingHeaderBackground": palette.green.functionMoss + "40",
+    "merge.incomingContentBackground": palette.green.functionMoss + "20",
+    "merge.commonHeaderBackground": palette.base.backgroundLighter + "40",
+    "merge.commonContentBackground": palette.base.backgroundLighter + "20",
+    "merge.border": "#00000000",
+  };
+}
+
+export type GitColors = ReturnType<typeof buildGitColors>;

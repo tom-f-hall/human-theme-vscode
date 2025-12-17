@@ -1,57 +1,60 @@
 /**
  * Diagnostics & Debugging - Errors, warnings, breakpoints, test results
+ * Generated from palette - not hardcoded
  */
 
-import { colors } from "./colors";
+import { Colors } from "./colors";
 
-export const diagnosticsColors = {
-  // Inline diagnostics
-  "editorError.foreground": colors.red.errorClay,
-  "editorWarning.foreground": colors.ochre.warmBold,
-  "editorInfo.foreground": colors.teal.typeSageBold,
-  "editorHint.foreground": colors.green.statusGood,
+export function buildDiagnosticsColors(palette: Colors) {
+  return {
+    // Inline diagnostics
+    "editorError.foreground": palette.red.errorClay,
+    "editorWarning.foreground": palette.ochre.warmBold,
+    "editorInfo.foreground": palette.teal.typeSageBold,
+    "editorHint.foreground": palette.green.statusGood,
 
-  "editorError.background": colors.red.errorBackground + "40",
-  "editorWarning.background": "#2A241440",
-  "editorInfo.background": "#16221C40",
+    "editorError.background": palette.red.errorBackground + "40",
+    "editorWarning.background": palette.base.backgroundDarker + "40",
+    "editorInfo.background": palette.base.backgroundDarker + "40",
 
-  "editorError.border": "#3A2018",
-  "editorWarning.border": "#3A3618",
-  "editorInfo.border": "#1A2825",
+    "editorError.border": palette.red.errorClay + "40",
+    "editorWarning.border": palette.ochre.warmBold + "40",
+    "editorInfo.border": palette.teal.typeSageBold + "40",
 
-  // Gutter indicators
-  "editorGutter.modifiedBackground": colors.ochre.warmBold,
-  "editorGutter.addedBackground": colors.green.functionMoss,
-  "editorGutter.deletedBackground": colors.red.errorClay,
-  "editorGutter.foldingControlForeground": colors.gray.commentMuted,
-  "editorGutter.commentRangeForeground": colors.ui.border,
-  "editorGutter.commentGlyphForeground": colors.gray.commentMuted,
-  "editorGutter.commentUnresolvedGlyphForeground": colors.red.errorClay,
+    // Gutter indicators
+    "editorGutter.modifiedBackground": palette.ochre.warmBold,
+    "editorGutter.addedBackground": palette.green.functionMoss,
+    "editorGutter.deletedBackground": palette.red.errorClay,
+    "editorGutter.foldingControlForeground": palette.gray.commentMuted,
+    "editorGutter.commentRangeForeground": palette.ui.border,
+    "editorGutter.commentGlyphForeground": palette.gray.commentMuted,
+    "editorGutter.commentUnresolvedGlyphForeground": palette.red.errorClay,
 
-  // Breakpoints
-  "debugIcon.breakpointForeground": colors.red.errorClay,
-  "debugIcon.breakpointDisabledForeground": colors.gray.commentMuted,
-  "debugIcon.breakpointUnverifiedForeground": colors.ochre.warmBold,
-  "debugIcon.breakpointCurrentStackframeForeground": colors.green.keywordBold,
-  "debugIcon.breakpointStackframeForeground": colors.teal.typeSageBold,
+    // Breakpoints
+    "debugIcon.breakpointForeground": palette.red.errorClay,
+    "debugIcon.breakpointDisabledForeground": palette.gray.commentMuted,
+    "debugIcon.breakpointUnverifiedForeground": palette.ochre.warmBold,
+    "debugIcon.breakpointCurrentStackframeForeground": palette.green.keywordBold,
+    "debugIcon.breakpointStackframeForeground": palette.teal.typeSageBold,
 
-  // Testing
-  "testing.iconPassed": colors.green.functionMoss,
-  "testing.iconFailed": colors.red.errorClay,
-  "testing.iconSkipped": colors.gray.commentMuted,
-  "testing.iconQueued": colors.ochre.warmBold,
-  "testing.runAction": colors.green.keywordBold,
-  "testing.message.error.lineBackground": colors.red.errorBackground,
-  "testing.message.info.lineBackground": "#16221C",
+    // Testing
+    "testing.iconPassed": palette.green.functionMoss,
+    "testing.iconFailed": palette.red.errorClay,
+    "testing.iconSkipped": palette.gray.commentMuted,
+    "testing.iconQueued": palette.ochre.warmBold,
+    "testing.runAction": palette.green.keywordBold,
+    "testing.message.error.lineBackground": palette.red.errorBackground,
+    "testing.message.info.lineBackground": palette.base.backgroundLighter,
 
-  // Problem panel
-  "problemsErrorIcon.foreground": colors.red.errorClay,
-  "problemsWarningIcon.foreground": colors.ochre.warmBold,
-  "problemsInfoIcon.foreground": colors.teal.typeSageBold,
+    // Problem panel
+    "problemsErrorIcon.foreground": palette.red.errorClay,
+    "problemsWarningIcon.foreground": palette.ochre.warmBold,
+    "problemsInfoIcon.foreground": palette.teal.typeSageBold,
 
-  // Diff editor
-  "diffEditor.insertedTextBackground": "#16332140",
-  "diffEditor.removedTextBackground": colors.red.errorBackground + "40",
-};
+    // Diff editor
+    "diffEditor.insertedTextBackground": palette.green.successLight + "20",
+    "diffEditor.removedTextBackground": palette.red.errorLight + "20",
+  };
+}
 
-export type DiagnosticsColors = typeof diagnosticsColors;
+export type DiagnosticsColors = ReturnType<typeof buildDiagnosticsColors>;

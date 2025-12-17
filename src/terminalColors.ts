@@ -1,37 +1,40 @@
 /**
  * Terminal Colors - ANSI 16-color palette for terminal/console
+ * Generated from palette - not hardcoded
  */
 
-import { colors } from "./colors";
+import { Colors } from "./colors";
 
-export const terminalColors = {
-  // Standard ANSI colors (0-7)
-  "terminal.ansiBlack": colors.base.backgroundDarker,
-  "terminal.ansiRed": colors.red.errorClay,
-  "terminal.ansiGreen": colors.green.functionMoss,
-  "terminal.ansiYellow": colors.ochre.warmBold,
-  "terminal.ansiBlue": colors.teal.typeSageBold,
-  "terminal.ansiMagenta": colors.red.rust,
-  "terminal.ansiCyan": colors.teal.operatorSage,
-  "terminal.ansiWhite": colors.base.foregroundMuted,
+export function buildTerminalColors(palette: Colors) {
+  return {
+    // Standard ANSI colors (0-7)
+    "terminal.ansiBlack": palette.base.backgroundDarker,
+    "terminal.ansiRed": palette.red.errorClay,
+    "terminal.ansiGreen": palette.green.functionMoss,
+    "terminal.ansiYellow": palette.ochre.warmBold,
+    "terminal.ansiBlue": palette.teal.typeSageBold,
+    "terminal.ansiMagenta": palette.red.rust,
+    "terminal.ansiCyan": palette.teal.operatorSage,
+    "terminal.ansiWhite": palette.base.foregroundMuted,
 
-  // Bright ANSI colors (8-15)
-  "terminal.ansiBrightBlack": colors.gray.lineNumberMuted,
-  "terminal.ansiBrightRed": colors.red.errorLight,
-  "terminal.ansiBrightGreen": colors.green.keywordBold,
-  "terminal.ansiBrightYellow": colors.ochre.warningAmber,
-  "terminal.ansiBrightBlue": colors.teal.structureCalm,
-  "terminal.ansiBrightMagenta": colors.red.errorLight,
-  "terminal.ansiBrightCyan": colors.teal.structureCalm,
-  "terminal.ansiBrightWhite": colors.base.foreground,
+    // Bright ANSI colors (8-15)
+    "terminal.ansiBrightBlack": palette.gray.lineNumberMuted,
+    "terminal.ansiBrightRed": palette.red.errorLight,
+    "terminal.ansiBrightGreen": palette.green.keywordBold,
+    "terminal.ansiBrightYellow": palette.ochre.warningAmber,
+    "terminal.ansiBrightBlue": palette.teal.structureCalm,
+    "terminal.ansiBrightMagenta": palette.red.errorLight,
+    "terminal.ansiBrightCyan": palette.teal.structureCalm,
+    "terminal.ansiBrightWhite": palette.base.foreground,
 
-  // Terminal UI
-  "terminal.background": colors.base.shadowColor,
-  "terminal.foreground": colors.base.foreground,
-  "terminalCursor.foreground": colors.green.keywordBold,
-  "terminal.selectionBackground": colors.ui.selectionBackground,
-  "terminalCommandDecoration.successBackground": "#163321",
-  "terminalCommandDecoration.errorBackground": colors.red.errorBackground,
-};
+    // Terminal UI
+    "terminal.background": palette.base.background,
+    "terminal.foreground": palette.base.foreground,
+    "terminalCursor.foreground": palette.green.keywordBold,
+    "terminal.selectionBackground": palette.ui.selectionBackground,
+    "terminalCommandDecoration.successBackground": palette.green.functionMoss + "40",
+    "terminalCommandDecoration.errorBackground": palette.red.errorBackground,
+  };
+}
 
-export type TerminalColors = typeof terminalColors;
+export type TerminalColors = ReturnType<typeof buildTerminalColors>;

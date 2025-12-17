@@ -5,11 +5,6 @@ Research-grade VS Code theme based on vision science and human perception. Desig
 ## Screenshots
 
 ![Human Dark](previews/human_dark_preview.png)
-![Human Light](previews/human_light_preview.png)
-![Human Low Light](previews/human_low_light_preview.png)
-![Human Soft](previews/human_soft_preview.png)
-![Human Warm](previews/human_warm_preview.png)
-![Human High Contrast](previews/human_high_contrast_preview.png)
 
 ## Features
 
@@ -32,6 +27,13 @@ Research-grade VS Code theme based on vision science and human perception. Desig
 - **Mercury OS Aesthetic** - Borderless, minimal UI with maximum content focus
 - **Comprehensive Language Support** - 220+ TextMate scopes covering 30+ programming languages
 - **Semantic Highlighting** - Full semantic token support for enhanced code understanding
+
+### Color Modes
+![Human Light](previews/human_light_preview.png)
+![Human Low Light](previews/human_low_light_preview.png)
+![Human Soft](previews/human_soft_preview.png)
+![Human Warm](previews/human_warm_preview.png)
+![Human High Contrast](previews/human_high_contrast_preview.png)
 
 ## Installation
 

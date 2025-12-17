@@ -1,89 +1,93 @@
 /**
  * Semantic Token Colors - Code highlighting rules
  * Maps semantic scopes to colors with intelligent hierarchy
+ * 
+ * Generated from palette - not hardcoded
  */
 
-import { colors } from "./colors";
+import { Colors } from "./colors";
 
-export const semanticTokens = {
-  // Keywords & control flow - vegetation (life, growth)
-  keyword: {
-    foreground: colors.green.keywordBold,
-    fontStyle: "bold",
-  },
-  "keyword.control": {
-    foreground: colors.green.keywordBold,
-    fontStyle: "bold",
-  },
-  "keyword.operator": colors.teal.operatorSage,
-  "keyword.type": colors.green.keywordBold,
+export function buildSemanticTokens(palette: Colors) {
+  return {
+    // Keywords & control flow - vegetation (life, growth)
+    keyword: {
+      foreground: palette.green.keywordBold,
+      fontStyle: "bold",
+    },
+    "keyword.control": {
+      foreground: palette.green.keywordBold,
+      fontStyle: "bold",
+    },
+    "keyword.operator": palette.teal.operatorSage,
+    "keyword.type": palette.green.keywordBold,
 
-  // Types & classes - sage teal + bold
-  type: {
-    foreground: colors.teal.typeSageBold,
-    fontStyle: "bold",
-  },
-  "type.defaultLibrary": {
-    foreground: colors.teal.typeSageBold,
-    fontStyle: "bold",
-  },
-  class: {
-    foreground: colors.teal.typeSageBold,
-    fontStyle: "bold",
-  },
-  "class.defaultLibrary": {
-    foreground: colors.teal.typeSageBold,
-    fontStyle: "bold",
-  },
-  interface: {
-    foreground: colors.teal.typeSageBold,
-    fontStyle: "bold",
-  },
-  "interface.defaultLibrary": {
-    foreground: colors.teal.typeSageBold,
-    fontStyle: "bold",
-  },
-  enum: colors.teal.typeSageBold,
-  "enum.defaultLibrary": colors.teal.typeSageBold,
-  typeAlias: colors.teal.typeSageBold,
-  struct: colors.teal.typeSageBold,
+    // Types & classes - sage teal + bold
+    type: {
+      foreground: palette.teal.typeSageBold,
+      fontStyle: "bold",
+    },
+    "type.defaultLibrary": {
+      foreground: palette.teal.typeSageBold,
+      fontStyle: "bold",
+    },
+    class: {
+      foreground: palette.teal.typeSageBold,
+      fontStyle: "bold",
+    },
+    "class.defaultLibrary": {
+      foreground: palette.teal.typeSageBold,
+      fontStyle: "bold",
+    },
+    interface: {
+      foreground: palette.teal.typeSageBold,
+      fontStyle: "bold",
+    },
+    "interface.defaultLibrary": {
+      foreground: palette.teal.typeSageBold,
+      fontStyle: "bold",
+    },
+    enum: palette.teal.typeSageBold,
+    "enum.defaultLibrary": palette.teal.typeSageBold,
+    typeAlias: palette.teal.typeSageBold,
+    struct: palette.teal.typeSageBold,
 
-  // Functions - moss green
-  function: colors.green.functionMoss,
-  "function.defaultLibrary": colors.green.functionMoss,
-  method: colors.green.functionMoss,
-  "method.defaultLibrary": colors.green.functionMoss,
-  "method.readonly": colors.green.functionMoss,
+    // Functions - moss green
+    function: palette.green.functionMoss,
+    "function.defaultLibrary": palette.green.functionMoss,
+    method: palette.green.functionMoss,
+    "method.defaultLibrary": palette.green.functionMoss,
+    "method.readonly": palette.green.functionMoss,
 
-  // Properties & parameters - calm tan
-  property: colors.gray.tan,
-  "property.readonly": colors.gray.tan,
-  "property.static": colors.ochre.warmBold,
-  parameter: colors.gray.tan,
-  "parameter.readonly": colors.gray.tan,
+    // Properties & parameters - calm tan
+    property: palette.gray.tan,
+    "property.readonly": palette.gray.tan,
+    "property.static": palette.ochre.warmBold,
+    parameter: palette.gray.tan,
+    "parameter.readonly": palette.gray.tan,
 
-  // Variables - muted
-  variable: colors.base.foreground,
-  "variable.readonly": colors.base.foreground,
-  "variable.defaultLibrary": colors.base.foreground,
+    // Variables - muted
+    variable: palette.base.foreground,
+    "variable.readonly": palette.base.foreground,
+    "variable.defaultLibrary": palette.base.foreground,
 
-  // Constants, strings - earth/warmth (resources, treasure)
-  number: colors.ochre.warmBold,
-  string: colors.ochre.warningAmber,  // Sunlight amber - warm, visible
-  boolean: colors.ochre.constantMuted,
-  constant: colors.ochre.warmBold,
-  macro: colors.red.rust,
+    // Constants, strings - earth/warmth (resources, treasure)
+    number: palette.ochre.warmBold,
+    string: palette.ochre.warningAmber,  // Sunlight amber - warm, visible
+    boolean: palette.ochre.constantMuted,
+    constant: palette.ochre.warmBold,
+    macro: palette.red.rust,
 
-  // Comments - italic, desaturated
-  comment: {
-    foreground: colors.gray.commentMuted,
-    fontStyle: "italic",
-  },
+    // Comments - italic, desaturated
+    comment: {
+      foreground: palette.gray.commentMuted,
+      fontStyle: "italic",
+    },
 
-  // Namespace & module - use bright function moss for visibility
-  namespace: colors.green.functionMoss,
-  "namespace.defaultLibrary": colors.green.functionMoss,
-  module: colors.green.functionMoss,
-} as const;
+    // Namespace & module - use bright function moss for visibility
+    namespace: palette.green.functionMoss,
+    "namespace.defaultLibrary": palette.green.functionMoss,
+    module: palette.green.functionMoss,
+  } as const;
+}
 
-export type SemanticTokens = typeof semanticTokens;
+export type SemanticTokens = ReturnType<typeof buildSemanticTokens>;

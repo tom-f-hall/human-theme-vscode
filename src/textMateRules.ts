@@ -3,54 +3,55 @@
  * Lower-level than semantic highlighting, catches edge cases
  */
 
-import { colors } from "./colors";
+import { Colors } from "./colors";
 
-export const textMateRules = [
+export function generateTextMateRules(palette: Colors) {
+  return [
   // Keywords
   {
     scope: "keyword",
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
   {
     scope: ["keyword.control", "keyword.control.catch", "keyword.control.exception"],
     settings: {
-      foreground: colors.ochre.warmBold,
+      foreground: palette.ochre.warmBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "keyword.control.return",
     settings: {
-      foreground: colors.ochre.warmBold,
+      foreground: palette.ochre.warmBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "keyword.operator.type",
     settings: {
-      foreground: colors.teal.operatorSage,
+      foreground: palette.teal.operatorSage,
     },
   },
   {
     scope: ["keyword.operator.type.annotation", "keyword.operator.assignment.type"],
     settings: {
-      foreground: colors.teal.operatorSage,
+      foreground: palette.teal.operatorSage,
     },
   },
   {
     scope: ["keyword.declaration", "storage.type"],
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold italic",
     },
   },
   {
     scope: ["keyword.import", "keyword.export"],
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
@@ -59,13 +60,13 @@ export const textMateRules = [
   {
     scope: "constant.numeric",
     settings: {
-      foreground: colors.ochre.warmBold,
+      foreground: palette.ochre.warmBold,
     },
   },
   {
     scope: ["constant.language.boolean", "constant.language"],
     settings: {
-      foreground: colors.ochre.constantMuted,
+      foreground: palette.ochre.constantMuted,
     },
   },
 
@@ -73,7 +74,7 @@ export const textMateRules = [
   {
     scope: "entity.name.function",
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
 
@@ -81,14 +82,14 @@ export const textMateRules = [
   {
     scope: ["entity.name.type", "entity.name.class", "entity.name.interface"],
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "support.type",
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
     },
   },
 
@@ -96,13 +97,13 @@ export const textMateRules = [
   {
     scope: ["variable.parameter", "variable.other.property"],
     settings: {
-      foreground: colors.gray.tan,
+      foreground: palette.gray.tan,
     },
   },
   {
     scope: "variable",
     settings: {
-      foreground: colors.base.foreground,
+      foreground: palette.base.foreground,
     },
   },
 
@@ -110,7 +111,7 @@ export const textMateRules = [
   {
     scope: ["meta.decorator", "storage.modifier.decorator"],
     settings: {
-      foreground: colors.red.rust,
+      foreground: palette.red.rust,
       fontStyle: "bold",
     },
   },
@@ -119,20 +120,20 @@ export const textMateRules = [
   {
     scope: ["entity.name.tag.html", "entity.name.tag.jsx", "entity.name.tag.tsx"],
     settings: {
-      foreground: colors.brown.htmlEarthy,
+      foreground: palette.brown.htmlEarthy,
       fontStyle: "bold",
     },
   },
   {
     scope: ["entity.other.attribute-name.html", "entity.other.attribute-name.jsx", "entity.other.attribute-name.tsx"],
     settings: {
-      foreground: colors.brown.attributeMuted,
+      foreground: palette.brown.attributeMuted,
     },
   },
   {
     scope: ["punctuation.definition.tag", "punctuation.definition.tag.begin", "punctuation.definition.tag.end"],
     settings: {
-      foreground: colors.brown.tagPunctuation,
+      foreground: palette.brown.tagPunctuation,
     },
   },
 
@@ -140,7 +141,7 @@ export const textMateRules = [
   {
     scope: "keyword.operator",
     settings: {
-      foreground: colors.teal.operatorSage,
+      foreground: palette.teal.operatorSage,
     },
   },
 
@@ -148,7 +149,7 @@ export const textMateRules = [
   {
     scope: "punctuation",
     settings: {
-      foreground: colors.gray.tan,
+      foreground: palette.gray.tan,
     },
   },
 
@@ -156,7 +157,7 @@ export const textMateRules = [
   {
     scope: ["meta.object-literal.key", "support.type.property-name.json"],
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
 
@@ -164,7 +165,7 @@ export const textMateRules = [
   {
     scope: "string",
     settings: {
-      foreground: colors.ochre.warningAmber,
+      foreground: palette.ochre.warningAmber,
     },
   },
 
@@ -172,7 +173,7 @@ export const textMateRules = [
   {
     scope: "comment",
     settings: {
-      foreground: colors.gray.commentMuted,
+      foreground: palette.gray.commentMuted,
       fontStyle: "italic",
     },
   },
@@ -181,7 +182,7 @@ export const textMateRules = [
   {
     scope: "invalid",
     settings: {
-      foreground: colors.red.errorClay,
+      foreground: palette.red.errorClay,
       fontStyle: "bold",
     },
   },
@@ -190,7 +191,7 @@ export const textMateRules = [
   {
     scope: ["meta.tag", "meta.tag.sgml"],
     settings: {
-      foreground: colors.red.rust,
+      foreground: palette.red.rust,
     },
   },
 
@@ -202,42 +203,42 @@ export const textMateRules = [
   {
     scope: ["markup.heading.markdown", "markup.heading.setext"],
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "markup.heading.1.markdown",
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "markup.heading.2.markdown",
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
       fontStyle: "bold",
     },
   },
   {
     scope: ["markup.heading.3.markdown", "markup.heading.4.markdown"],
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
       fontStyle: "bold",
     },
   },
   {
     scope: ["markup.heading.5.markdown", "markup.heading.6.markdown"],
     settings: {
-      foreground: colors.teal.operatorSage,
+      foreground: palette.teal.operatorSage,
       fontStyle: "bold",
     },
   },
   {
     scope: "punctuation.definition.heading.markdown",
     settings: {
-      foreground: colors.gray.commentMuted,
+      foreground: palette.gray.commentMuted,
     },
   },
 
@@ -245,28 +246,28 @@ export const textMateRules = [
   {
     scope: "markup.bold.markdown",
     settings: {
-      foreground: colors.ochre.warmBold,
+      foreground: palette.ochre.warmBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "markup.italic.markdown",
     settings: {
-      foreground: colors.ochre.warningAmber,
+      foreground: palette.ochre.warningAmber,
       fontStyle: "italic",
     },
   },
   {
     scope: "markup.bold.italic.markdown",
     settings: {
-      foreground: colors.ochre.warmBold,
+      foreground: palette.ochre.warmBold,
       fontStyle: "bold italic",
     },
   },
   {
     scope: "markup.strikethrough.markdown",
     settings: {
-      foreground: colors.gray.commentMuted,
+      foreground: palette.gray.commentMuted,
       fontStyle: "strikethrough",
     },
   },
@@ -275,19 +276,19 @@ export const textMateRules = [
   {
     scope: ["markup.underline.link.markdown", "markup.underline.link.image.markdown"],
     settings: {
-      foreground: colors.teal.operatorSage,
+      foreground: palette.teal.operatorSage,
     },
   },
   {
     scope: ["string.other.link.title.markdown", "string.other.link.description.markdown"],
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
   {
     scope: "markup.inline.raw.string.markdown",
     settings: {
-      foreground: colors.ochre.warningAmber,
+      foreground: palette.ochre.warningAmber,
     },
   },
 
@@ -295,19 +296,19 @@ export const textMateRules = [
   {
     scope: ["markup.fenced_code.block.markdown", "markup.inline.raw.markdown"],
     settings: {
-      foreground: colors.ochre.constantMuted,
+      foreground: palette.ochre.constantMuted,
     },
   },
   {
     scope: "punctuation.definition.markdown",
     settings: {
-      foreground: colors.gray.commentMuted,
+      foreground: palette.gray.commentMuted,
     },
   },
   {
     scope: "fenced_code.block.language",
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
     },
   },
 
@@ -315,13 +316,13 @@ export const textMateRules = [
   {
     scope: ["markup.list.unnumbered.markdown", "markup.list.numbered.markdown"],
     settings: {
-      foreground: colors.base.foreground,
+      foreground: palette.base.foreground,
     },
   },
   {
     scope: "punctuation.definition.list.begin.markdown",
     settings: {
-      foreground: colors.brown.htmlEarthy,
+      foreground: palette.brown.htmlEarthy,
       fontStyle: "bold",
     },
   },
@@ -330,14 +331,14 @@ export const textMateRules = [
   {
     scope: "markup.quote.markdown",
     settings: {
-      foreground: colors.gray.tan,
+      foreground: palette.gray.tan,
       fontStyle: "italic",
     },
   },
   {
     scope: "punctuation.definition.quote.begin.markdown",
     settings: {
-      foreground: colors.brown.attributeMuted,
+      foreground: palette.brown.attributeMuted,
     },
   },
 
@@ -345,7 +346,7 @@ export const textMateRules = [
   {
     scope: ["meta.embedded.block.frontmatter", "punctuation.definition.tag.frontmatter"],
     settings: {
-      foreground: colors.gray.commentMuted,
+      foreground: palette.gray.commentMuted,
     },
   },
 
@@ -357,28 +358,28 @@ export const textMateRules = [
   {
     scope: ["entity.name.tag.css", "entity.name.tag.scss", "entity.name.tag.less"],
     settings: {
-      foreground: colors.brown.htmlEarthy,
+      foreground: palette.brown.htmlEarthy,
       fontStyle: "bold",
     },
   },
   {
     scope: ["entity.other.attribute-name.class.css", "entity.other.attribute-name.class.scss"],
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
       fontStyle: "bold",
     },
   },
   {
     scope: ["entity.other.attribute-name.id.css", "entity.other.attribute-name.id.scss"],
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
   {
     scope: ["entity.other.attribute-name.pseudo-class.css", "entity.other.attribute-name.pseudo-element.css"],
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
 
@@ -386,7 +387,7 @@ export const textMateRules = [
   {
     scope: ["support.type.property-name.css", "support.type.property-name.scss", "meta.property-name.css"],
     settings: {
-      foreground: colors.teal.operatorSage,
+      foreground: palette.teal.operatorSage,
     },
   },
 
@@ -394,25 +395,25 @@ export const textMateRules = [
   {
     scope: ["support.constant.property-value.css", "meta.property-value.css"],
     settings: {
-      foreground: colors.ochre.constantMuted,
+      foreground: palette.ochre.constantMuted,
     },
   },
   {
     scope: ["constant.numeric.css", "keyword.other.unit.css"],
     settings: {
-      foreground: colors.ochre.warmBold,
+      foreground: palette.ochre.warmBold,
     },
   },
   {
     scope: ["support.constant.color.css", "constant.other.color.css"],
     settings: {
-      foreground: colors.ochre.warningAmber,
+      foreground: palette.ochre.warningAmber,
     },
   },
   {
     scope: "support.function.css",
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
 
@@ -420,20 +421,20 @@ export const textMateRules = [
   {
     scope: ["variable.scss", "variable.less", "variable.parameter.scss"],
     settings: {
-      foreground: colors.red.rust,
+      foreground: palette.red.rust,
     },
   },
   {
     scope: ["keyword.control.at-rule.scss", "keyword.control.at-rule.css"],
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "support.function.misc.scss",
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
 
@@ -444,31 +445,31 @@ export const textMateRules = [
   {
     scope: "entity.name.tag.yaml",
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
   {
     scope: "string.unquoted.yaml",
     settings: {
-      foreground: colors.ochre.constantMuted,
+      foreground: palette.ochre.constantMuted,
     },
   },
   {
     scope: "string.quoted.yaml",
     settings: {
-      foreground: colors.ochre.warningAmber,
+      foreground: palette.ochre.warningAmber,
     },
   },
   {
     scope: ["punctuation.definition.anchor.yaml", "punctuation.definition.alias.yaml"],
     settings: {
-      foreground: colors.red.rust,
+      foreground: palette.red.rust,
     },
   },
   {
     scope: "constant.language.yaml",
     settings: {
-      foreground: colors.ochre.warmBold,
+      foreground: palette.ochre.warmBold,
     },
   },
 
@@ -479,31 +480,31 @@ export const textMateRules = [
   {
     scope: ["support.function.builtin.shell", "support.function.external.shell"],
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
   {
     scope: "variable.other.normal.shell",
     settings: {
-      foreground: colors.red.rust,
+      foreground: palette.red.rust,
     },
   },
   {
     scope: "string.quoted.double.shell",
     settings: {
-      foreground: colors.ochre.warningAmber,
+      foreground: palette.ochre.warningAmber,
     },
   },
   {
     scope: "string.quoted.single.shell",
     settings: {
-      foreground: colors.ochre.constantMuted,
+      foreground: palette.ochre.constantMuted,
     },
   },
   {
     scope: "keyword.operator.redirect.shell",
     settings: {
-      foreground: colors.teal.operatorSage,
+      foreground: palette.teal.operatorSage,
     },
   },
 
@@ -514,33 +515,33 @@ export const textMateRules = [
   {
     scope: ["keyword.other.sql", "keyword.other.DML.sql", "keyword.other.DDL.sql"],
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "storage.type.sql",
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
       fontStyle: "bold",
     },
   },
   {
     scope: ["support.function.aggregate.sql", "support.function.scalar.sql"],
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
   {
     scope: "constant.other.database-name.sql",
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
     },
   },
   {
     scope: "constant.other.table-name.sql",
     settings: {
-      foreground: colors.brown.htmlEarthy,
+      foreground: palette.brown.htmlEarthy,
     },
   },
 
@@ -551,32 +552,32 @@ export const textMateRules = [
   {
     scope: "support.type.python",
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
     },
   },
   {
     scope: "support.function.builtin.python",
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
   {
     scope: "constant.language.python",
     settings: {
-      foreground: colors.ochre.constantMuted,
+      foreground: palette.ochre.constantMuted,
     },
   },
   {
     scope: "variable.parameter.function.language.special.self.python",
     settings: {
-      foreground: colors.red.rust,
+      foreground: palette.red.rust,
       fontStyle: "italic",
     },
   },
   {
     scope: "storage.type.function.python",
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
@@ -588,38 +589,38 @@ export const textMateRules = [
   {
     scope: ["support.type.object.module.js", "support.type.object.module.ts"],
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
     },
   },
   {
     scope: ["support.variable.property.js", "support.variable.property.ts"],
     settings: {
-      foreground: colors.gray.tan,
+      foreground: palette.gray.tan,
     },
   },
   {
     scope: ["variable.other.constant.js", "variable.other.constant.ts"],
     settings: {
-      foreground: colors.ochre.warmBold,
+      foreground: palette.ochre.warmBold,
     },
   },
   {
     scope: "storage.type.type.ts",
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "entity.name.type.module.ts",
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
     },
   },
   {
     scope: ["keyword.control.as.ts", "keyword.control.from.ts"],
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
@@ -628,13 +629,13 @@ export const textMateRules = [
   {
     scope: ["entity.other.attribute-name.js.jsx", "entity.other.attribute-name.tsx"],
     settings: {
-      foreground: colors.brown.attributeMuted,
+      foreground: palette.brown.attributeMuted,
     },
   },
   {
     scope: ["support.class.component.js", "support.class.component.tsx"],
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
       fontStyle: "bold",
     },
   },
@@ -646,19 +647,19 @@ export const textMateRules = [
   {
     scope: "support.type.property-name.json",
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
   {
     scope: "string.quoted.double.json",
     settings: {
-      foreground: colors.ochre.warningAmber,
+      foreground: palette.ochre.warningAmber,
     },
   },
   {
     scope: "constant.language.json",
     settings: {
-      foreground: colors.ochre.warmBold,
+      foreground: palette.ochre.warmBold,
     },
   },
 
@@ -669,26 +670,26 @@ export const textMateRules = [
   {
     scope: ["string.regexp", "constant.other.character-class.regexp"],
     settings: {
-      foreground: colors.red.rust,
+      foreground: palette.red.rust,
     },
   },
   {
     scope: "keyword.operator.quantifier.regexp",
     settings: {
-      foreground: colors.ochre.warmBold,
+      foreground: palette.ochre.warmBold,
     },
   },
   {
     scope: ["keyword.control.anchor.regexp", "punctuation.definition.group.regexp"],
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "constant.character.escape.regexp",
     settings: {
-      foreground: colors.ochre.constantMuted,
+      foreground: palette.ochre.constantMuted,
     },
   },
 
@@ -699,31 +700,31 @@ export const textMateRules = [
   {
     scope: "meta.diff.header",
     settings: {
-      foreground: colors.teal.operatorSage,
+      foreground: palette.teal.operatorSage,
     },
   },
   {
     scope: "markup.inserted",
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
   {
     scope: "markup.deleted",
     settings: {
-      foreground: colors.red.errorClay,
+      foreground: palette.red.errorClay,
     },
   },
   {
     scope: "markup.changed",
     settings: {
-      foreground: colors.ochre.warningAmber,
+      foreground: palette.ochre.warningAmber,
     },
   },
   {
     scope: "meta.diff.range",
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
       fontStyle: "bold",
     },
   },
@@ -735,14 +736,14 @@ export const textMateRules = [
   {
     scope: ["keyword.other.special-method.dockerfile", "keyword.operator.flag.dockerfile"],
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "entity.name.function.package.dockerfile",
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
     },
   },
 
@@ -753,20 +754,20 @@ export const textMateRules = [
   {
     scope: ["keyword.other.definition.ini", "entity.name.section.group-title.ini"],
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
       fontStyle: "bold",
     },
   },
   {
     scope: "keyword.key.toml",
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
   {
     scope: ["entity.name.tag.toml", "support.type.property-name.table.toml"],
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
       fontStyle: "bold",
     },
   },
@@ -778,20 +779,20 @@ export const textMateRules = [
   {
     scope: "entity.name.tag.xml",
     settings: {
-      foreground: colors.brown.htmlEarthy,
+      foreground: palette.brown.htmlEarthy,
       fontStyle: "bold",
     },
   },
   {
     scope: "entity.other.attribute-name.xml",
     settings: {
-      foreground: colors.brown.attributeMuted,
+      foreground: palette.brown.attributeMuted,
     },
   },
   {
     scope: "meta.tag.preprocessor.xml",
     settings: {
-      foreground: colors.gray.commentMuted,
+      foreground: palette.gray.commentMuted,
     },
   },
 
@@ -802,20 +803,20 @@ export const textMateRules = [
   {
     scope: "entity.name.package.go",
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
     },
   },
   {
     scope: "entity.name.type.go",
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "support.function.builtin.go",
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
 
@@ -826,21 +827,21 @@ export const textMateRules = [
   {
     scope: ["storage.type.rust", "entity.name.type.rust"],
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "entity.name.function.macro.rust",
     settings: {
-      foreground: colors.red.rust,
+      foreground: palette.red.rust,
       fontStyle: "bold",
     },
   },
   {
     scope: "storage.modifier.lifetime.rust",
     settings: {
-      foreground: colors.ochre.constantMuted,
+      foreground: palette.ochre.constantMuted,
     },
   },
 
@@ -851,13 +852,13 @@ export const textMateRules = [
   {
     scope: ["storage.modifier.java", "storage.type.annotation.java"],
     settings: {
-      foreground: colors.red.rust,
+      foreground: palette.red.rust,
     },
   },
   {
     scope: "storage.type.object.array.java",
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
     },
   },
 
@@ -868,19 +869,19 @@ export const textMateRules = [
   {
     scope: ["storage.modifier.pointer.c", "storage.modifier.reference.cpp"],
     settings: {
-      foreground: colors.teal.operatorSage,
+      foreground: palette.teal.operatorSage,
     },
   },
   {
     scope: ["entity.name.function.preprocessor.c", "entity.name.function.preprocessor.cpp"],
     settings: {
-      foreground: colors.red.rust,
+      foreground: palette.red.rust,
     },
   },
   {
     scope: "storage.type.built-in.primitive.cpp",
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
     },
   },
 
@@ -891,20 +892,20 @@ export const textMateRules = [
   {
     scope: "support.class.builtin.php",
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
     },
   },
   {
     scope: "support.function.construct.php",
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "variable.other.php",
     settings: {
-      foreground: colors.red.rust,
+      foreground: palette.red.rust,
     },
   },
 
@@ -915,19 +916,19 @@ export const textMateRules = [
   {
     scope: ["variable.other.constant.ruby", "support.class.ruby"],
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
     },
   },
   {
     scope: ["punctuation.definition.variable.ruby", "variable.other.readwrite.instance.ruby"],
     settings: {
-      foreground: colors.red.rust,
+      foreground: palette.red.rust,
     },
   },
   {
     scope: "keyword.control.pseudo-method.ruby",
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
@@ -939,33 +940,33 @@ export const textMateRules = [
   {
     scope: ["entity.name.function.kotlin", "entity.name.function.declaration.kotlin"],
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
   {
     scope: ["keyword.other.kotlin", "storage.type.kotlin"],
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "entity.name.class.kotlin",
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "variable.parameter.function.kotlin",
     settings: {
-      foreground: colors.base.foreground,
+      foreground: palette.base.foreground,
     },
   },
   {
     scope: "storage.modifier.kotlin",
     settings: {
-      foreground: colors.red.rust,
+      foreground: palette.red.rust,
     },
   },
 
@@ -976,33 +977,33 @@ export const textMateRules = [
   {
     scope: ["entity.name.function.swift", "support.function.swift"],
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
   {
     scope: ["keyword.control.swift", "storage.type.swift"],
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "entity.name.type.class.swift",
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "storage.modifier.swift",
     settings: {
-      foreground: colors.red.rust,
+      foreground: palette.red.rust,
     },
   },
   {
     scope: "support.type.swift",
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
     },
   },
 
@@ -1013,20 +1014,20 @@ export const textMateRules = [
   {
     scope: ["entity.name.function.scala", "entity.name.function.declaration.scala"],
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
   {
     scope: "entity.name.class.scala",
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "storage.type.scala",
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
@@ -1038,27 +1039,27 @@ export const textMateRules = [
   {
     scope: ["entity.name.function.haskell", "support.function.prelude.haskell"],
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
   {
     scope: "storage.type.haskell",
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "keyword.other.haskell",
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "keyword.operator.haskell",
     settings: {
-      foreground: colors.teal.operatorSage,
+      foreground: palette.teal.operatorSage,
     },
   },
 
@@ -1069,26 +1070,26 @@ export const textMateRules = [
   {
     scope: ["entity.name.function.elixir", "support.function.elixir"],
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
   {
     scope: "keyword.control.elixir",
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "constant.language.elixir",
     settings: {
-      foreground: colors.ochre.constantMuted,
+      foreground: palette.ochre.constantMuted,
     },
   },
   {
     scope: "variable.other.readwrite.module.elixir",
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
     },
   },
 
@@ -1099,20 +1100,20 @@ export const textMateRules = [
   {
     scope: "entity.name.function.clojure",
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
   {
     scope: "keyword.control.clojure",
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "constant.keyword.clojure",
     settings: {
-      foreground: colors.ochre.warmBold,
+      foreground: palette.ochre.warmBold,
     },
   },
 
@@ -1123,19 +1124,19 @@ export const textMateRules = [
   {
     scope: ["entity.name.function.dart", "support.function.dart"],
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
   {
     scope: "storage.type.primitive.dart",
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
     },
   },
   {
     scope: "storage.modifier.dart",
     settings: {
-      foreground: colors.red.rust,
+      foreground: palette.red.rust,
     },
   },
 
@@ -1146,20 +1147,20 @@ export const textMateRules = [
   {
     scope: ["entity.name.function.lua", "support.function.lua"],
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
   {
     scope: "keyword.control.lua",
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "constant.language.lua",
     settings: {
-      foreground: colors.ochre.constantMuted,
+      foreground: palette.ochre.constantMuted,
     },
   },
 
@@ -1170,20 +1171,20 @@ export const textMateRules = [
   {
     scope: ["support.function.powershell", "entity.name.function.powershell"],
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
   {
     scope: "keyword.control.powershell",
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "variable.other.readwrite.powershell",
     settings: {
-      foreground: colors.red.rust,
+      foreground: palette.red.rust,
     },
   },
 
@@ -1194,20 +1195,20 @@ export const textMateRules = [
   {
     scope: ["entity.name.function.r", "support.function.r"],
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
   {
     scope: "keyword.control.r",
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "constant.language.r",
     settings: {
-      foreground: colors.ochre.constantMuted,
+      foreground: palette.ochre.constantMuted,
     },
   },
 
@@ -1218,20 +1219,20 @@ export const textMateRules = [
   {
     scope: ["entity.name.function.julia", "support.function.julia"],
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
   {
     scope: "keyword.control.julia",
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "support.type.julia",
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
     },
   },
 
@@ -1242,26 +1243,26 @@ export const textMateRules = [
   {
     scope: ["entity.name.function.objc", "support.function.objc"],
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
   {
     scope: "storage.type.objc",
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
     },
   },
   {
     scope: "keyword.control.objc",
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "storage.modifier.objc",
     settings: {
-      foreground: colors.red.rust,
+      foreground: palette.red.rust,
     },
   },
 
@@ -1272,13 +1273,13 @@ export const textMateRules = [
   {
     scope: "entity.name.function.fortran",
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
   {
     scope: "keyword.control.fortran",
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
@@ -1290,14 +1291,14 @@ export const textMateRules = [
   {
     scope: "keyword.verb.cobol",
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "entity.name.function.cobol",
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
 
@@ -1308,26 +1309,26 @@ export const textMateRules = [
   {
     scope: ["keyword.operation.graphql", "keyword.type.graphql"],
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "entity.name.fragment.graphql",
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
   {
     scope: "variable.parameter.graphql",
     settings: {
-      foreground: colors.red.rust,
+      foreground: palette.red.rust,
     },
   },
   {
     scope: "entity.name.type.graphql",
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
     },
   },
 
@@ -1338,14 +1339,14 @@ export const textMateRules = [
   {
     scope: "keyword.other.proto",
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "entity.name.type.proto",
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
     },
   },
 
@@ -1356,21 +1357,21 @@ export const textMateRules = [
   {
     scope: ["entity.name.resource.terraform", "entity.name.type.terraform"],
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "keyword.other.terraform",
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "variable.other.terraform",
     settings: {
-      foreground: colors.red.rust,
+      foreground: palette.red.rust,
     },
   },
 
@@ -1381,20 +1382,20 @@ export const textMateRules = [
   {
     scope: ["keyword.control.latex", "support.function.latex"],
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "variable.parameter.latex",
     settings: {
-      foreground: colors.ochre.warningAmber,
+      foreground: palette.ochre.warningAmber,
     },
   },
   {
     scope: "constant.character.latex",
     settings: {
-      foreground: colors.teal.operatorSage,
+      foreground: palette.teal.operatorSage,
     },
   },
 
@@ -1405,20 +1406,20 @@ export const textMateRules = [
   {
     scope: "keyword.mnemonic.assembly",
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "entity.name.function.assembly",
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
   {
     scope: "constant.numeric.assembly",
     settings: {
-      foreground: colors.ochre.warmBold,
+      foreground: palette.ochre.warmBold,
     },
   },
 
@@ -1429,14 +1430,14 @@ export const textMateRules = [
   {
     scope: "keyword.control.vba",
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "entity.name.function.vba",
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
 
@@ -1447,99 +1448,99 @@ export const textMateRules = [
   {
     scope: ["meta.embedded", "meta.embedded.block"],
     settings: {
-      foreground: colors.base.foreground,
+      foreground: palette.base.foreground,
     },
   },
   {
     scope: "meta.preprocessor",
     settings: {
-      foreground: colors.red.rust,
+      foreground: palette.red.rust,
     },
   },
   {
     scope: ["storage.modifier", "storage.modifier.access"],
     settings: {
-      foreground: colors.red.rust,
+      foreground: palette.red.rust,
     },
   },
   {
     scope: "constant.character",
     settings: {
-      foreground: colors.ochre.constantMuted,
+      foreground: palette.ochre.constantMuted,
     },
   },
   {
     scope: "constant.character.escape",
     settings: {
-      foreground: colors.red.errorClay,
+      foreground: palette.red.errorClay,
     },
   },
   {
     scope: "entity.name.section",
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "entity.name.namespace",
     settings: {
-      foreground: colors.teal.namespace,
+      foreground: palette.teal.namespace,
     },
   },
   {
     scope: "entity.name.label",
     settings: {
-      foreground: colors.ochre.warmBold,
+      foreground: palette.ochre.warmBold,
     },
   },
   {
     scope: "support.constant",
     settings: {
-      foreground: colors.ochre.constantMuted,
+      foreground: palette.ochre.constantMuted,
     },
   },
   {
     scope: "support.variable",
     settings: {
-      foreground: colors.base.foreground,
+      foreground: palette.base.foreground,
     },
   },
   {
     scope: "support.other.namespace",
     settings: {
-      foreground: colors.teal.namespace,
+      foreground: palette.teal.namespace,
     },
   },
   {
     scope: "variable.language",
     settings: {
-      foreground: colors.red.rust,
+      foreground: palette.red.rust,
       fontStyle: "italic",
     },
   },
   {
     scope: "variable.other.constant",
     settings: {
-      foreground: colors.ochre.warmBold,
+      foreground: palette.ochre.warmBold,
     },
   },
   {
     scope: "variable.other.member",
     settings: {
-      foreground: colors.base.foreground,
+      foreground: palette.base.foreground,
     },
   },
   {
     scope: "meta.import",
     settings: {
-      foreground: colors.base.foreground,
+      foreground: palette.base.foreground,
     },
   },
   {
     scope: "meta.export",
     settings: {
-      foreground: colors.base.foreground,
+      foreground: palette.base.foreground,
     },
   },
 
@@ -1550,31 +1551,31 @@ export const textMateRules = [
   {
     scope: "punctuation.separator",
     settings: {
-      foreground: colors.teal.operatorSage,
+      foreground: palette.teal.operatorSage,
     },
   },
   {
     scope: "punctuation.terminator",
     settings: {
-      foreground: colors.gray.tan,
+      foreground: palette.gray.tan,
     },
   },
   {
     scope: "punctuation.accessor",
     settings: {
-      foreground: colors.teal.operatorSage,
+      foreground: palette.teal.operatorSage,
     },
   },
   {
     scope: ["punctuation.section.embedded", "punctuation.section.interpolation"],
     settings: {
-      foreground: colors.red.rust,
+      foreground: palette.red.rust,
     },
   },
   {
     scope: ["punctuation.definition.string.begin", "punctuation.definition.string.end"],
     settings: {
-      foreground: colors.ochre.warningAmber,
+      foreground: palette.ochre.warningAmber,
     },
   },
 
@@ -1585,20 +1586,20 @@ export const textMateRules = [
   {
     scope: ["support.class.component.react", "support.class.component.vue"],
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "support.type.property-name.css.jsx",
     settings: {
-      foreground: colors.teal.operatorSage,
+      foreground: palette.teal.operatorSage,
     },
   },
   {
     scope: "entity.other.attribute-name.directive.angular",
     settings: {
-      foreground: colors.red.rust,
+      foreground: palette.red.rust,
     },
   },
 
@@ -1609,13 +1610,13 @@ export const textMateRules = [
   {
     scope: ["support.function.jest", "support.function.mocha"],
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
   {
     scope: ["entity.name.function.test", "entity.name.function.spec"],
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
 
@@ -1626,31 +1627,31 @@ export const textMateRules = [
   {
     scope: "meta.function-call",
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
   {
     scope: "meta.method-call",
     settings: {
-      foreground: colors.green.functionMoss,
+      foreground: palette.green.functionMoss,
     },
   },
   {
     scope: "meta.property-access",
     settings: {
-      foreground: colors.base.foreground,
+      foreground: palette.base.foreground,
     },
   },
   {
     scope: "meta.type.annotation",
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
     },
   },
   {
     scope: "meta.type.parameters",
     settings: {
-      foreground: colors.teal.typeSageBold,
+      foreground: palette.teal.typeSageBold,
     },
   },
 
@@ -1661,34 +1662,35 @@ export const textMateRules = [
   {
     scope: ["storage.type.function.arrow", "storage.type.function.lambda"],
     settings: {
-      foreground: colors.teal.operatorSage,
+      foreground: palette.teal.operatorSage,
     },
   },
   {
     scope: "keyword.operator.new",
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
       fontStyle: "bold",
     },
   },
   {
     scope: "keyword.operator.expression.typeof",
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
     },
   },
   {
     scope: "keyword.operator.expression.instanceof",
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
     },
   },
   {
     scope: "keyword.operator.expression.delete",
     settings: {
-      foreground: colors.green.keywordBold,
+      foreground: palette.green.keywordBold,
     },
   },
-];
+  ];
+}
 
-export type TextMateRules = typeof textMateRules;
+export type TextMateRules = ReturnType<typeof generateTextMateRules>;
