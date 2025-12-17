@@ -931,6 +931,764 @@ export const textMateRules = [
       fontStyle: "bold",
     },
   },
+
+  // ============================================================================
+  // Kotlin - JVM language specific scopes
+  // ============================================================================
+  
+  {
+    scope: ["entity.name.function.kotlin", "entity.name.function.declaration.kotlin"],
+    settings: {
+      foreground: colors.green.functionMoss,
+    },
+  },
+  {
+    scope: ["keyword.other.kotlin", "storage.type.kotlin"],
+    settings: {
+      foreground: colors.green.keywordBold,
+      fontStyle: "bold",
+    },
+  },
+  {
+    scope: "entity.name.class.kotlin",
+    settings: {
+      foreground: colors.teal.typeSageBold,
+      fontStyle: "bold",
+    },
+  },
+  {
+    scope: "variable.parameter.function.kotlin",
+    settings: {
+      foreground: colors.base.foreground,
+    },
+  },
+  {
+    scope: "storage.modifier.kotlin",
+    settings: {
+      foreground: colors.red.rust,
+    },
+  },
+
+  // ============================================================================
+  // Swift - iOS/macOS development
+  // ============================================================================
+  
+  {
+    scope: ["entity.name.function.swift", "support.function.swift"],
+    settings: {
+      foreground: colors.green.functionMoss,
+    },
+  },
+  {
+    scope: ["keyword.control.swift", "storage.type.swift"],
+    settings: {
+      foreground: colors.green.keywordBold,
+      fontStyle: "bold",
+    },
+  },
+  {
+    scope: "entity.name.type.class.swift",
+    settings: {
+      foreground: colors.teal.typeSageBold,
+      fontStyle: "bold",
+    },
+  },
+  {
+    scope: "storage.modifier.swift",
+    settings: {
+      foreground: colors.red.rust,
+    },
+  },
+  {
+    scope: "support.type.swift",
+    settings: {
+      foreground: colors.teal.typeSageBold,
+    },
+  },
+
+  // ============================================================================
+  // Scala - Functional programming on JVM
+  // ============================================================================
+  
+  {
+    scope: ["entity.name.function.scala", "entity.name.function.declaration.scala"],
+    settings: {
+      foreground: colors.green.functionMoss,
+    },
+  },
+  {
+    scope: "entity.name.class.scala",
+    settings: {
+      foreground: colors.teal.typeSageBold,
+      fontStyle: "bold",
+    },
+  },
+  {
+    scope: "storage.type.scala",
+    settings: {
+      foreground: colors.green.keywordBold,
+      fontStyle: "bold",
+    },
+  },
+
+  // ============================================================================
+  // Haskell - Pure functional language
+  // ============================================================================
+  
+  {
+    scope: ["entity.name.function.haskell", "support.function.prelude.haskell"],
+    settings: {
+      foreground: colors.green.functionMoss,
+    },
+  },
+  {
+    scope: "storage.type.haskell",
+    settings: {
+      foreground: colors.teal.typeSageBold,
+      fontStyle: "bold",
+    },
+  },
+  {
+    scope: "keyword.other.haskell",
+    settings: {
+      foreground: colors.green.keywordBold,
+      fontStyle: "bold",
+    },
+  },
+  {
+    scope: "keyword.operator.haskell",
+    settings: {
+      foreground: colors.teal.operatorSage,
+    },
+  },
+
+  // ============================================================================
+  // Elixir - Functional, concurrent language
+  // ============================================================================
+  
+  {
+    scope: ["entity.name.function.elixir", "support.function.elixir"],
+    settings: {
+      foreground: colors.green.functionMoss,
+    },
+  },
+  {
+    scope: "keyword.control.elixir",
+    settings: {
+      foreground: colors.green.keywordBold,
+      fontStyle: "bold",
+    },
+  },
+  {
+    scope: "constant.language.elixir",
+    settings: {
+      foreground: colors.ochre.constantMuted,
+    },
+  },
+  {
+    scope: "variable.other.readwrite.module.elixir",
+    settings: {
+      foreground: colors.teal.typeSageBold,
+    },
+  },
+
+  // ============================================================================
+  // Clojure - Lisp dialect on JVM
+  // ============================================================================
+  
+  {
+    scope: "entity.name.function.clojure",
+    settings: {
+      foreground: colors.green.functionMoss,
+    },
+  },
+  {
+    scope: "keyword.control.clojure",
+    settings: {
+      foreground: colors.green.keywordBold,
+      fontStyle: "bold",
+    },
+  },
+  {
+    scope: "constant.keyword.clojure",
+    settings: {
+      foreground: colors.ochre.warmBold,
+    },
+  },
+
+  // ============================================================================
+  // Dart - Flutter/mobile development
+  // ============================================================================
+  
+  {
+    scope: ["entity.name.function.dart", "support.function.dart"],
+    settings: {
+      foreground: colors.green.functionMoss,
+    },
+  },
+  {
+    scope: "storage.type.primitive.dart",
+    settings: {
+      foreground: colors.teal.typeSageBold,
+    },
+  },
+  {
+    scope: "storage.modifier.dart",
+    settings: {
+      foreground: colors.red.rust,
+    },
+  },
+
+  // ============================================================================
+  // Lua - Lightweight scripting language
+  // ============================================================================
+  
+  {
+    scope: ["entity.name.function.lua", "support.function.lua"],
+    settings: {
+      foreground: colors.green.functionMoss,
+    },
+  },
+  {
+    scope: "keyword.control.lua",
+    settings: {
+      foreground: colors.green.keywordBold,
+      fontStyle: "bold",
+    },
+  },
+  {
+    scope: "constant.language.lua",
+    settings: {
+      foreground: colors.ochre.constantMuted,
+    },
+  },
+
+  // ============================================================================
+  // PowerShell - Windows automation
+  // ============================================================================
+  
+  {
+    scope: ["support.function.powershell", "entity.name.function.powershell"],
+    settings: {
+      foreground: colors.green.functionMoss,
+    },
+  },
+  {
+    scope: "keyword.control.powershell",
+    settings: {
+      foreground: colors.green.keywordBold,
+      fontStyle: "bold",
+    },
+  },
+  {
+    scope: "variable.other.readwrite.powershell",
+    settings: {
+      foreground: colors.red.rust,
+    },
+  },
+
+  // ============================================================================
+  // R - Statistical computing
+  // ============================================================================
+  
+  {
+    scope: ["entity.name.function.r", "support.function.r"],
+    settings: {
+      foreground: colors.green.functionMoss,
+    },
+  },
+  {
+    scope: "keyword.control.r",
+    settings: {
+      foreground: colors.green.keywordBold,
+      fontStyle: "bold",
+    },
+  },
+  {
+    scope: "constant.language.r",
+    settings: {
+      foreground: colors.ochre.constantMuted,
+    },
+  },
+
+  // ============================================================================
+  // Julia - Scientific computing
+  // ============================================================================
+  
+  {
+    scope: ["entity.name.function.julia", "support.function.julia"],
+    settings: {
+      foreground: colors.green.functionMoss,
+    },
+  },
+  {
+    scope: "keyword.control.julia",
+    settings: {
+      foreground: colors.green.keywordBold,
+      fontStyle: "bold",
+    },
+  },
+  {
+    scope: "support.type.julia",
+    settings: {
+      foreground: colors.teal.typeSageBold,
+    },
+  },
+
+  // ============================================================================
+  // Objective-C - Apple's legacy language
+  // ============================================================================
+  
+  {
+    scope: ["entity.name.function.objc", "support.function.objc"],
+    settings: {
+      foreground: colors.green.functionMoss,
+    },
+  },
+  {
+    scope: "storage.type.objc",
+    settings: {
+      foreground: colors.teal.typeSageBold,
+    },
+  },
+  {
+    scope: "keyword.control.objc",
+    settings: {
+      foreground: colors.green.keywordBold,
+      fontStyle: "bold",
+    },
+  },
+  {
+    scope: "storage.modifier.objc",
+    settings: {
+      foreground: colors.red.rust,
+    },
+  },
+
+  // ============================================================================
+  // Fortran - Scientific computing legacy
+  // ============================================================================
+  
+  {
+    scope: "entity.name.function.fortran",
+    settings: {
+      foreground: colors.green.functionMoss,
+    },
+  },
+  {
+    scope: "keyword.control.fortran",
+    settings: {
+      foreground: colors.green.keywordBold,
+      fontStyle: "bold",
+    },
+  },
+
+  // ============================================================================
+  // COBOL - Enterprise legacy systems
+  // ============================================================================
+  
+  {
+    scope: "keyword.verb.cobol",
+    settings: {
+      foreground: colors.green.keywordBold,
+      fontStyle: "bold",
+    },
+  },
+  {
+    scope: "entity.name.function.cobol",
+    settings: {
+      foreground: colors.green.functionMoss,
+    },
+  },
+
+  // ============================================================================
+  // GraphQL - Query language for APIs
+  // ============================================================================
+  
+  {
+    scope: ["keyword.operation.graphql", "keyword.type.graphql"],
+    settings: {
+      foreground: colors.green.keywordBold,
+      fontStyle: "bold",
+    },
+  },
+  {
+    scope: "entity.name.fragment.graphql",
+    settings: {
+      foreground: colors.green.functionMoss,
+    },
+  },
+  {
+    scope: "variable.parameter.graphql",
+    settings: {
+      foreground: colors.red.rust,
+    },
+  },
+  {
+    scope: "entity.name.type.graphql",
+    settings: {
+      foreground: colors.teal.typeSageBold,
+    },
+  },
+
+  // ============================================================================
+  // Protocol Buffers - Data serialization
+  // ============================================================================
+  
+  {
+    scope: "keyword.other.proto",
+    settings: {
+      foreground: colors.green.keywordBold,
+      fontStyle: "bold",
+    },
+  },
+  {
+    scope: "entity.name.type.proto",
+    settings: {
+      foreground: colors.teal.typeSageBold,
+    },
+  },
+
+  // ============================================================================
+  // Terraform - Infrastructure as Code
+  // ============================================================================
+  
+  {
+    scope: ["entity.name.resource.terraform", "entity.name.type.terraform"],
+    settings: {
+      foreground: colors.teal.typeSageBold,
+      fontStyle: "bold",
+    },
+  },
+  {
+    scope: "keyword.other.terraform",
+    settings: {
+      foreground: colors.green.keywordBold,
+      fontStyle: "bold",
+    },
+  },
+  {
+    scope: "variable.other.terraform",
+    settings: {
+      foreground: colors.red.rust,
+    },
+  },
+
+  // ============================================================================
+  // LaTeX - Document preparation system
+  // ============================================================================
+  
+  {
+    scope: ["keyword.control.latex", "support.function.latex"],
+    settings: {
+      foreground: colors.green.keywordBold,
+      fontStyle: "bold",
+    },
+  },
+  {
+    scope: "variable.parameter.latex",
+    settings: {
+      foreground: colors.ochre.warningAmber,
+    },
+  },
+  {
+    scope: "constant.character.latex",
+    settings: {
+      foreground: colors.teal.operatorSage,
+    },
+  },
+
+  // ============================================================================
+  // Assembly - Low-level programming
+  // ============================================================================
+  
+  {
+    scope: "keyword.mnemonic.assembly",
+    settings: {
+      foreground: colors.green.keywordBold,
+      fontStyle: "bold",
+    },
+  },
+  {
+    scope: "entity.name.function.assembly",
+    settings: {
+      foreground: colors.green.functionMoss,
+    },
+  },
+  {
+    scope: "constant.numeric.assembly",
+    settings: {
+      foreground: colors.ochre.warmBold,
+    },
+  },
+
+  // ============================================================================
+  // VBA - Visual Basic for Applications
+  // ============================================================================
+  
+  {
+    scope: "keyword.control.vba",
+    settings: {
+      foreground: colors.green.keywordBold,
+      fontStyle: "bold",
+    },
+  },
+  {
+    scope: "entity.name.function.vba",
+    settings: {
+      foreground: colors.green.functionMoss,
+    },
+  },
+
+  // ============================================================================
+  // Additional Language-Agnostic Tokens
+  // ============================================================================
+  
+  {
+    scope: ["meta.embedded", "meta.embedded.block"],
+    settings: {
+      foreground: colors.base.foreground,
+    },
+  },
+  {
+    scope: "meta.preprocessor",
+    settings: {
+      foreground: colors.red.rust,
+    },
+  },
+  {
+    scope: ["storage.modifier", "storage.modifier.access"],
+    settings: {
+      foreground: colors.red.rust,
+    },
+  },
+  {
+    scope: "constant.character",
+    settings: {
+      foreground: colors.ochre.constantMuted,
+    },
+  },
+  {
+    scope: "constant.character.escape",
+    settings: {
+      foreground: colors.red.errorClay,
+    },
+  },
+  {
+    scope: "entity.name.section",
+    settings: {
+      foreground: colors.green.keywordBold,
+      fontStyle: "bold",
+    },
+  },
+  {
+    scope: "entity.name.namespace",
+    settings: {
+      foreground: colors.teal.namespace,
+    },
+  },
+  {
+    scope: "entity.name.label",
+    settings: {
+      foreground: colors.ochre.warmBold,
+    },
+  },
+  {
+    scope: "support.constant",
+    settings: {
+      foreground: colors.ochre.constantMuted,
+    },
+  },
+  {
+    scope: "support.variable",
+    settings: {
+      foreground: colors.base.foreground,
+    },
+  },
+  {
+    scope: "support.other.namespace",
+    settings: {
+      foreground: colors.teal.namespace,
+    },
+  },
+  {
+    scope: "variable.language",
+    settings: {
+      foreground: colors.red.rust,
+      fontStyle: "italic",
+    },
+  },
+  {
+    scope: "variable.other.constant",
+    settings: {
+      foreground: colors.ochre.warmBold,
+    },
+  },
+  {
+    scope: "variable.other.member",
+    settings: {
+      foreground: colors.base.foreground,
+    },
+  },
+  {
+    scope: "meta.import",
+    settings: {
+      foreground: colors.base.foreground,
+    },
+  },
+  {
+    scope: "meta.export",
+    settings: {
+      foreground: colors.base.foreground,
+    },
+  },
+
+  // ============================================================================
+  // Punctuation & Delimiters - Fine-grained control
+  // ============================================================================
+  
+  {
+    scope: "punctuation.separator",
+    settings: {
+      foreground: colors.teal.operatorSage,
+    },
+  },
+  {
+    scope: "punctuation.terminator",
+    settings: {
+      foreground: colors.gray.tan,
+    },
+  },
+  {
+    scope: "punctuation.accessor",
+    settings: {
+      foreground: colors.teal.operatorSage,
+    },
+  },
+  {
+    scope: ["punctuation.section.embedded", "punctuation.section.interpolation"],
+    settings: {
+      foreground: colors.red.rust,
+    },
+  },
+  {
+    scope: ["punctuation.definition.string.begin", "punctuation.definition.string.end"],
+    settings: {
+      foreground: colors.ochre.warningAmber,
+    },
+  },
+
+  // ============================================================================
+  // Framework & Library Specific - React, Vue, Angular
+  // ============================================================================
+  
+  {
+    scope: ["support.class.component.react", "support.class.component.vue"],
+    settings: {
+      foreground: colors.teal.typeSageBold,
+      fontStyle: "bold",
+    },
+  },
+  {
+    scope: "support.type.property-name.css.jsx",
+    settings: {
+      foreground: colors.teal.operatorSage,
+    },
+  },
+  {
+    scope: "entity.other.attribute-name.directive.angular",
+    settings: {
+      foreground: colors.red.rust,
+    },
+  },
+
+  // ============================================================================
+  // Testing Frameworks - Jest, Mocha, RSpec, pytest
+  // ============================================================================
+  
+  {
+    scope: ["support.function.jest", "support.function.mocha"],
+    settings: {
+      foreground: colors.green.functionMoss,
+    },
+  },
+  {
+    scope: ["entity.name.function.test", "entity.name.function.spec"],
+    settings: {
+      foreground: colors.green.functionMoss,
+    },
+  },
+
+  // ============================================================================
+  // Additional Meta Scopes for Editor Intelligence
+  // ============================================================================
+  
+  {
+    scope: "meta.function-call",
+    settings: {
+      foreground: colors.green.functionMoss,
+    },
+  },
+  {
+    scope: "meta.method-call",
+    settings: {
+      foreground: colors.green.functionMoss,
+    },
+  },
+  {
+    scope: "meta.property-access",
+    settings: {
+      foreground: colors.base.foreground,
+    },
+  },
+  {
+    scope: "meta.type.annotation",
+    settings: {
+      foreground: colors.teal.typeSageBold,
+    },
+  },
+  {
+    scope: "meta.type.parameters",
+    settings: {
+      foreground: colors.teal.typeSageBold,
+    },
+  },
+
+  // ============================================================================
+  // Enhanced Language Features
+  // ============================================================================
+  
+  {
+    scope: ["storage.type.function.arrow", "storage.type.function.lambda"],
+    settings: {
+      foreground: colors.teal.operatorSage,
+    },
+  },
+  {
+    scope: "keyword.operator.new",
+    settings: {
+      foreground: colors.green.keywordBold,
+      fontStyle: "bold",
+    },
+  },
+  {
+    scope: "keyword.operator.expression.typeof",
+    settings: {
+      foreground: colors.green.keywordBold,
+    },
+  },
+  {
+    scope: "keyword.operator.expression.instanceof",
+    settings: {
+      foreground: colors.green.keywordBold,
+    },
+  },
+  {
+    scope: "keyword.operator.expression.delete",
+    settings: {
+      foreground: colors.green.keywordBold,
+    },
+  },
 ];
 
 export type TextMateRules = typeof textMateRules;
